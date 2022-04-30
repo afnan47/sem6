@@ -145,7 +145,7 @@ bool solvable(int start[]){
     return invrs & 1 ? false : true;
 }
 
-printImpossible(){
+void printImpossible(){
     cout << R"(|￣￣￣￣￣￣￣￣￣￣￣|
  ITS IMPOSSIBLE TO SOLVE
 |＿＿＿＿＿＿＿＿＿＿＿|
