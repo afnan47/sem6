@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title> Calculator </title>
+		<script src="angular.min.js"></script>	
+		<link rel="stylesheet" href="Ang.css">	
+		<script type="text/javascript">
+			
+			var app= angular.module("Calculator",[]);
+
+			app.controller("calc", function($scope){
+			$scope.a=0;
+			$scope.b=0;
+			
+				$scope.add=function(){
+				$scope.result = $scope.a + $scope.b;			
+				}
+				
+				$scope.sub=function(){
+				$scope.result = $scope.a - $scope.b;
+				}
+			
+				$scope.mult=function(){
+				$scope.result = $scope.a * $scope.b;
+				}
+				
+				$scope.div=function(){
+				$scope.result = $scope.a / $scope.b;
+				}
+
+                $scope.per=function(){
+				$scope.result = ($scope.a / $scope.b)*100;
+				}
+			});		
+		</script>
+	</head>
+	<body style="margin-top:125px">
+		<div class="cal">
+            <center><h3>CALCULATOR</h3></center>
+		</div>
+        <div class="op" ng-app="Calculator" ng-controller="calc" >
+			Number 1: <input type = "number" ng-model="a" style="text-align:right"><br><br>
+			Number 2: <input type = "number" ng-model="b" style="text-align:right"><br><br>
+			<button ng-click = "add()">+</button>  
+			<button ng-click = "sub()">-</button>
+			<button ng-click = "mult()">*</button>
+            <button ng-click = "div()">/</button>
+            <button ng-click = "per()">%</button>
+			<br><br>
+			Result: {{result}}
+		</div
+	</body>
+</html>

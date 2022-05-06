@@ -1,0 +1,38 @@
+body{
+background-color:#34495e;
+}
+
+form{
+width:800px;
+margin:0 auto;
+background-color:white;
+border:8px solid black;
+}
+
+.cont1{
+padding:20px;
+
+}
+
+input[type=text],[type=password],[type=email]
+{
+width:90%;
+margin:10px 10px 0;
+padding:20px 10px 0;
+
+}
+
+input[type=submit]
+{
+width:90%;
+margin:10px 10px 0;
+padding:10px 10px 0;
+color:white;
+background-color:green;
+}
+
+.cont2{
+padding:30px;
+background-color:#ccc;
+
+}

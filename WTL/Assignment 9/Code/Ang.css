@@ -1,0 +1,19 @@
+.cal{
+    	margin: auto;
+    	width: 30%;
+    	border: 15px solid black;
+ 	background: gray;
+    	padding: 10px;
+    	border-bottom: 0px;
+    	box-sizing: border-box;	
+}
+.op{
+	margin: auto;
+	width: 30%;
+	padding: 20px;
+    	border: 15px solid black;
+    	border-top: 10px solid;
+	background: gray;
+	box-sizing: border-box;	
+}
+
