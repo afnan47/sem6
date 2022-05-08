@@ -5,6 +5,7 @@ Steps for WordCount Execution program
 //run daemons
 
 start-all.sh
+
 start-dfs.sh
 
 //Pass@123
