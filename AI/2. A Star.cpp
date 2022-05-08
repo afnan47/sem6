@@ -145,15 +145,15 @@ bool solvable(int start[]){
     return invrs & 1 ? false : true;
 }
 
-void printImpossible(){
-    cout << R"(|￣￣￣￣￣￣￣￣￣￣￣|
- ITS IMPOSSIBLE TO SOLVE
-|＿＿＿＿＿＿＿＿＿＿＿|
-   (\__/)  ||
-   (•ㅅ•)  ||
-   /  　  づ
-)" << '\n';
-}
+// void printImpossible(){
+//     cout << R"(|￣￣￣￣￣￣￣￣￣￣￣|
+//  ITS IMPOSSIBLE TO SOLVE
+// |＿＿＿＿＿＿＿＿＿＿＿|
+//    (\__/)  ||
+//    (•ㅅ•)  ||
+//    /  　  づ
+// )" << '\n';
+// }
 
 int main(){
     int start[9];
@@ -170,7 +170,7 @@ int main(){
     // verify if possible to solve
     Print(start);
     if(solvable(start)) solveEight(start, goal);
-    else printImpossible();
+    else cout << "\nImpossible To Solve\n";
 
     return 0;
 }
