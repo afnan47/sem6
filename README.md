@@ -3,6 +3,7 @@ SPPU Computer TE-Sem 2 Assignments
 Steps for WordCount Execution program
 
 //run daemons
+
 start-all.sh
 start-dfs.sh
 
