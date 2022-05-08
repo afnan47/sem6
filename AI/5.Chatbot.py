@@ -22,5 +22,5 @@ question = input("Ask me anything:(Enter Endgame to exit) ")
 while question != "Endgame" or question != "endgame":
         response = chatbot.get_response(question)
         print(response)
-        question = input("Enter your question:(Enter No to exit) ")
+        question = input("Enter your question:(Enter Endgame to exit) ")
 print("Goodbye")
