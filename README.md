@@ -26,4 +26,5 @@ hadoop fs -ls /output
 hadoop fs -cat /output/part-r-00000
 
 //If you get server errors run
+
 hadoop namenode -format
