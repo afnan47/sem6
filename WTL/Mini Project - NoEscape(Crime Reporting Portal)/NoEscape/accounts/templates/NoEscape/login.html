@@ -1,0 +1,150 @@
+{% extends 'NoEscape/basic.html' %}
+{% load static %}
+{% block css %}
+	  @import url('https://fonts.googleapis.com/css?family=Numans');
+
+	html,body{
+	background-image: url('{% static "../static/NoEscape/images/cctv.jpg" %}');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	font-family: 'Numans', sans-serif;
+	}
+
+	.container{
+	height: 100%;
+	align-content: center;
+	}
+
+	.card{
+	margin-top: 150px;
+	margin-bottom: auto;
+	width: 400px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	padding: 10px;
+	background-color: rgba(41,43,44,0.8) !important;
+	}
+
+	.card-header{
+	padding-top:20px;
+	}
+
+	h3{
+	color:white;
+	}
+
+	.input-group-prepend span{
+	width: 50px;
+	height:40px;
+	background-color: #FFC312;
+	color: black;
+	border:0 !important;
+	}
+
+	.input-group{
+	margin-bottom:15px;
+	}
+
+	.remember{
+	color: white;
+	}
+
+	.remember input
+	{
+	width: 20px;
+	height: 20px;
+	margin-left: 15px;
+	margin-right: 5px;
+	}
+
+	.login_btn{
+	color: black;
+	background-color: #FFC312;
+	width: 100px;
+	float:right;
+	}
+
+	.login_btn:hover{
+	color: black;
+	background-color: white;
+	}
+
+	.links{
+	margin:10px 0px;
+	color: white;
+	}
+
+	.links a{
+	margin-left: 4px;
+	}
+	.link a{
+	color: #FFC312;
+	text-decoration:None;
+	}
+	.link a:hover{
+	color:white;
+	}
+	.d-flex a{
+	color: #FFC312;
+	text-decoration:None;
+	}
+	.d-flex a:hover{
+	opacity:0.8;
+	}
+	.errorlist{
+	color:green;
+	}
+{% endblock %}
+{% block nav %}
+	<form class="link">
+        <a class="btn btn-outline-warning" href="{% url 'login' %}" role="button">Log in</a>
+        <a class="btn btn-outline-warning" style="margin-left:20px;" href="{% url 'sign up' %}" role="button">Sign Up</a>
+    </form>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3 style="color:#FFC312;">Sign In</h3>
+			</div>
+			<div class="card-body">
+				<form method="POST" action="">
+					{% csrf_token %}
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+					<input type="text" name="username" class="form-control" placeholder="username">
+
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+					<input type="password" name="password" class="form-control" placeholder="password">
+					</div>
+					<div class="row align-items-center remember">
+						<input type="checkbox">Remember Me
+					</div>
+					<div class="form-group">
+						<input type="submit" value="Login" class="btn login_btn">
+					</div>
+				</form>
+			</div>
+			{% for message in messages %}
+				<p class="errorlist">{{message}}</p>
+			{% endfor %}
+			<div class="card-footer">
+				<div class="d-flex justify-content-center links">
+					Don't have an account?<a href="{% url 'sign up' %}">Sign Up</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,178 @@
+{% extends 'NoEscape/basic.html' %}
+{% load static %}
+{% block css %}
+	@import url('https://fonts.googleapis.com/css?family=Numans');
+	html,body{
+	background-image: url('{% static "../static/NoEscape/images/cctv.jpg" %}');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	font-family: 'Numans', sans-serif;
+	}
+
+	.flex-container{
+	height: 100%;
+	display:inline-block;
+	}
+
+	#first{
+	margin-top: 170px;
+	margin-bottom: auto;
+	margin-left:100px;
+	width: 550px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	background-color: rgba(41,43,44,0.8) !important;
+	}
+
+	#demo{
+	margin-top:-585px;
+	margin-bottom: 180px;
+	margin-left:750px;
+	width: 550px;
+	height:380px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	background-color: rgba(41,43,44,0.8) !important;
+	}
+
+	.card-header{
+	padding-top:20px;
+	}
+
+	h3{
+	color:rgb(120, 200, 50);
+	}
+
+	label{
+	color:white;
+	width:80px;
+	}
+
+	label,input,textarea{
+	display:inline-block;
+	}
+
+	.input-group-append span{
+	width: 50px;
+	height:40px;
+	background-color: #FFC312;
+	color: black;
+	border:0 !important;
+	}
+
+	.input-group{
+	margin-bottom:15px;
+	float:right;
+	}
+
+	.submit_btn{
+	color: black;
+	background-color: #FFC312;
+	width: 100px;
+	float:right;
+	padding:10px 0px;
+	margin:10px 0px;
+	}
+
+	.submit_btn:hover{
+	color: black;
+	background-color: white;
+	}
+
+	.links{
+	margin:10px 0px;
+	color: white;
+	}
+
+	.links a{
+	margin-left: 4px;
+	}
+	.link a{
+	color: #FFC312;
+	text-decoration:None;
+	}
+	.link a:hover{
+	color:white;
+	}
+	.carousel-inner img{
+	display: block;
+    height: 260px;
+	width:100%;
+    line-height: 1;
+    margin: 40px 140px;
+	}
+{% endblock %}
+{% block nav %}
+	<form class="link">
+        <a class="btn btn-outline-warning" href="{% url 'login' %}" role="button">Log in</a>
+        <a class="btn btn-outline-warning" style="margin-left:20px;" href="{% url 'sign up' %}" role="button">Sign Up</a>
+    </form>
+{% endblock %}
+{% block body %}
+
+<div class="flex-container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card" id="first">
+			<div class="card-header">
+				<h3>Welcome Back!</h3>
+			</div>
+			<div class="card-body">
+				<p style="color:white;">Welcome!<br>
+					&emsp;&emsp; &emsp; This is the platform where one can complain about the rough driving/ traffic violations done by other people with or without revealing their own identity.<br>
+					&emsp;&emsp; &emsp; The complaint can be registered in a very simple format. Other people who are present in that place can also help police by uploading photos/videos of a rush driven car if they have any.<br>
+					&emsp;&emsp; &emsp; It will definitely help to reduce such violations on-road and help victims to get justice.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-bs-target="#demo" data-bs-slide-to="0" class="active"></li>
+    <li data-bs-target="#demo" data-bs-slide-to="1"></li>
+    <li data-bs-target="#demo" data-bs-slide-to="2"></li>
+    <li data-bs-target="#demo" data-bs-slide-to="3"></li>
+    <li data-bs-target="#demo" data-bs-slide-to="4"></li>
+    <li data-bs-target="#demo" data-bs-slide-to="5"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src='{% static "../static/NoEscape/images/1.jpg" %}' class="d-block w-50">
+    </div>
+    <div class="carousel-item">
+      <img src='{% static "../static/NoEscape/images/2.jpg" %}' class="d-block w-50">
+    </div>
+    <div class="carousel-item">
+      <img src='{% static "../static/NoEscape/images/3.jpg" %}' class="d-block w-50">
+    </div>
+	<div class="carousel-item">
+      <img src='{% static "../static/NoEscape/images/4.jpg" %}' class="d-block w-50">
+    </div>
+	<div class="carousel-item">
+      <img src='{% static "../static/NoEscape/images/5.jpg" %}' class="d-block w-50">
+    </div>
+	<div class="carousel-item">
+      <img src='{% static "../static/NoEscape/images/6.jpg" %}' class="d-block w-50">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#demo" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#demo" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>
+
+{% for message in messages %}
+	<p class="errorlist">{{message}}</p>
+{% endfor %}
+{% endblock %}
+
+

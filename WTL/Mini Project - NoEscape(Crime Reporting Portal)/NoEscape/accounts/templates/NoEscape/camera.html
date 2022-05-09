@@ -1,0 +1,146 @@
+{% extends 'NoEscape/basic.html' %}
+{% load static %}
+{% block css %}
+	  @import url('https://fonts.googleapis.com/css?family=Numans');
+
+	html,body{
+	background-image: url('{% static "../static/NoEscape/images/cctv.jpg" %}');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	font-family: 'Numans', sans-serif;
+	}
+
+	container{
+	height: 100%;
+	display:inline-block;
+	}
+
+	.card{
+	margin-top: 150px;
+	margin-bottom: 50px;
+	width: 620px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	background-color: rgba(41,43,44,0.8) !important;
+	}
+
+	.card-header{
+	padding-top:20px;
+	}
+
+	h3{
+	color:white;
+	}
+
+	label{
+	color:white;
+	width:90px;
+	padding-left:-10px;
+	}
+
+	label,input,textarea{
+	display:inline-block;
+	width:100px;
+	}
+
+	.input-group-append span{
+	width: 50px;
+	height:40px;
+	background-color: #FFC312;
+	color: black;
+	border:0 !important;
+	}
+
+	.input-group{
+	margin-bottom:15px;
+	float:right;
+	}
+
+	.submit_btn{
+	color: black;
+	background-color: #FFC312;
+	width: 100px;
+	float:right;
+	padding:10px 0px;
+	margin:10px 0px;
+	}
+
+	.submit_btn:hover{
+	color: black;
+	background-color: white;
+	}
+
+	.links{
+	margin:10px 0px;
+	color: white;
+	}
+
+	.links a{
+	margin-left: 4px;
+	}
+	.link a{
+	color: #FFC312;
+	text-decoration:None;
+	}
+	.link a:hover{
+	color:white;
+	}
+	.d-flex a{
+	color: #FFC312;
+	text-decoration:None;
+	}
+	.d-flex a:hover{
+	opacity:0.8;
+	}
+	.errorlist{
+	font-size:30px;
+	color:green;
+	}
+{% endblock %}
+{% block body %}
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3 style="color:#FFC312;">Add a Camera</h3>
+			</div>
+			<div class="card-body">
+				<form method="POST" action="">
+					{% csrf_token %}
+					<div class="input-group form-group">
+						<div class="input-group-append">
+							<label>UserName </label>
+						</div>
+					<input type="text" name="username" class="form-control" placeholder="Enter your username">
+
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-append">
+							<label>Password </label>
+						</div>
+					<input type="password" name="password" class="form-control" placeholder="password">
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-append">
+							<label>Ip Address</label>
+						</div>
+					<input type="ip" name="ip_address" class="form-control" placeholder="Enter ip address">
+					</div>
+					<div class="form-group">
+						<input type="submit" value="Submit" class="btn submit_btn">
+					</div>
+				</form>
+			</div>
+			{% for message in messages %}
+				<p class="errorlist">{{message}}</p>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+
