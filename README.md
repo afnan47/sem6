@@ -1,2 +1,2 @@
 # Semester-6
-SPPU Computer TE-Sem 2 Assignments
+SPPU Computer Engineering Thrid Year-Sem 2 Assignments
