@@ -11,6 +11,7 @@ def print_board(elements):
 
 def solvable(start):
     inv=0
+
     for i in range(9):
         if start[i] <= 1:
             continue
@@ -30,8 +31,7 @@ def heuristic(start,goal):
         for j in range(9):
             if start[i] == goal[j] and start[i] != -1:
                 h += (abs(j-i))//3 + (abs(j-i))%3
-
-    return  h + g
+    return h + g
 
 def moveleft(start,position):
     start[position],start[position-1]= start[position-1],start[position]
@@ -78,23 +78,21 @@ def movetile(start,goal):
         moveup(start, emptyat)
         
         
-
-
 def solveEight(start,goal):
     global g
     g+=1
     movetile(start,goal)
     print_board(start)
     f = heuristic(start,goal)
-    if f== g:
+    if f == g:
         print("Solved in {} moves".format(f))
         return
 
     solveEight(start,goal)
 
 
-
 def main():
+    global g
     start = list()
     goal = list()
     print("Enter the start state:(Enter -1 for empty):")
@@ -108,9 +106,9 @@ def main():
     print_board(start)
 
     # To check if solvable
-    if solvable(start) == True:
+    if solvable(start):
         solveEight(start,goal)
-        print("Solvable")
+        print("Solved in {} moves".format(g))
     else:
         print("Not possible to solve")
 
