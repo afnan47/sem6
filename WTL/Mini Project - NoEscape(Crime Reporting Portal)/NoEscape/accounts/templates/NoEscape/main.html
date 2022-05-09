@@ -1,0 +1,196 @@
+{% extends 'NoEscape/basic.html' %}
+{% load static %}
+{% block css %}
+	@import url('https://fonts.googleapis.com/css?family=Numans');
+
+	html,body{
+	background-image: url('{% static "../static/NoEscape/images/cctv.jpg" %}');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	font-family: 'Numans', sans-serif;
+	}
+
+	.flex-container{
+	height: 480px;
+	display:inline-block;
+	}
+
+	.container{
+	float:left;
+	}
+	#zero{
+	margin-top: -190px;
+	margin-bottom: auto;
+	margin-left:120px;
+	width: 550px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	background-color: rgba(41,43,44,0.8) !important;
+	}
+
+	#first{
+	margin-top: 80px;
+	margin-bottom: auto;
+	margin-left:120px;
+	width: 550px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	background-color: rgba(41,43,44,0.8) !important;
+	}
+
+	#second{
+	margin-top:-450px;
+	margin-bottom: auto;
+	margin-left:110px;
+	width: 550px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	background-color: rgba(41,43,44,0.8) !important;
+	}
+
+	#camera{
+	margin-top: -200px;
+	margin-bottom: auto;
+	margin-left:110px;
+	width: 1225px;
+	position: relative;
+	justify-content: center;
+	padding: 10px;
+	background-color: rgba(41,43,44,0.8) !important;
+	}
+
+	.card-header{
+	padding-top:20px;
+	}
+
+	h3{
+	color:rgb(120, 200, 50);
+	}
+
+	label{
+	color:white;
+	width:80px;
+	}
+
+	label,input,textarea{
+	display:inline-block;
+	}
+
+	.input-group-append span{
+	width: 50px;
+	height:40px;
+	background-color: #FFC312;
+	color: black;
+	border:0 !important;
+	}
+
+	.input-group{
+	margin-bottom:15px;
+	float:right;
+	}
+
+	.submit_btn{
+	color: black;
+	background-color: #FFC312;
+	width: 100px;
+	float:right;
+	padding:10px 0px;
+	margin:10px 0px;
+	}
+
+	.submit_btn:hover{
+	color: black;
+	background-color: white;
+	}
+
+	.links{
+	margin:10px 0px;
+	color: white;
+	}
+
+	.links a{
+	margin-left: 4px;
+	}
+	.link a{
+	color: #FFC312;
+	text-decoration:None;
+	}
+	.link a:hover{
+	color:white;
+	}
+	.d-flex a{
+	color: #FFC312;
+	text-decoration:None;
+	}
+	.d-flex a:hover{
+	opacity:0.8;
+	}
+{% endblock %}
+{% block body %}
+<div class="flex-container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card" id="zero">
+			<div class="card-header">
+				<h3><a style="text-decoration:None;" href="{% url 'complaint' %}"><i class="fas fa-angle-right"></i><i class="fas fa-angle-right"></i><i class="fas fa-angle-right"></i>   Add Complaints</a></h3>
+			</div>
+			<div class="card-body">
+				<p style="color:white;">To File a report for your accident, Please click on the link above <i class="fas fa-arrow-alt-circle-up"></i></p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="flex-container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card" id="first">
+			<div class="card-header">
+				<h3>Welcome Back!</h3>
+			</div>
+			<div class="card-body">
+				<p style="color:white;">Welcome!<br>
+					&emsp;&emsp; &emsp; This is the platform where one can complain about the rough driving/ traffic violations done by other people with or without revealing their own identity.<br>
+					&emsp;&emsp; &emsp; The complaint can be registered in a very simple format. Other people who are present in that place can also help police by uploading photos/videos of a rush driven car if they have any.<br>
+					&emsp;&emsp; &emsp; It will definitely help to reduce such violations on-road and help victims to get justice.</p>
+			</div>
+			<div class="card-body">
+
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="col-md-6 col-sm-6">
+		<div class="card" id="second">
+			<div class="card-header">
+				<h3><a style="text-decoration:None;" href="{% url 'evidence' %}"><i class="fas fa-angle-right"></i><i class="fas fa-angle-right"></i><i class="fas fa-angle-right"></i>   Upload Evidence</a></h3>
+			</div>
+			<div class="card-body">
+				<p style="color:white;">To Add some proof about the incident, Please click on the link above <i class="fas fa-arrow-alt-circle-up"></i></p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="h-100">
+		<div class="card" id="camera">
+			<div class="card-header">
+				<h3><a style="text-decoration:None;color:red;" href="{% url 'camera' %}"><i class="fas fa-angle-right"></i><i class="fas fa-angle-right"></i><i class="fas fa-angle-right"></i>   Add Camera</a></h3>
+			</div>
+			<div class="card-body">
+				<p style="color:white;">To add a camera facing the signal or any crime scenes, Please click on the link above <i class="fas fa-arrow-alt-circle-up"></i></p>
+			</div>
+		</div>
+	</div>
+</div>
+{% for message in messages %}
+	<p class="errorlist">{{message}}</p>
+{% endfor %}
+{% endblock %}
+
+

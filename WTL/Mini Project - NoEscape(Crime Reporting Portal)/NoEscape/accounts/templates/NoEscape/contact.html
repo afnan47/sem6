@@ -1,0 +1,167 @@
+{% extends 'NoEscape/basic.html' %}
+{% load static %}
+{% block css %}
+	@import url('https://fonts.googleapis.com/css?family=Numans');
+
+	html,body{
+	background-image: url('{% static "../static/NoEscape/images/cctv.jpg" %}');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	font-family: 'Numans', sans-serif;
+	}
+
+	.flex-container{
+	height: 100%;
+	display:inline-block;
+	}
+
+	.card{
+	margin-top: 150px;
+	margin-bottom: auto;
+	margin-left:80px;
+	width: 600px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	background-color: rgba(41,43,44,0.8) !important;
+	}
+
+	.card-header{
+	padding-top:20px;
+	}
+
+	h3{
+	color:white;
+	}
+
+	label{
+	color:white;
+	width:90px;
+	}
+
+	label,input,textarea{
+	display:inline-block;
+	}
+
+	.input-group-append span{
+	width: 50px;
+	height:40px;
+	background-color: #FFC312;
+	color: black;
+	border:0 !important;
+	}
+
+	.input-group{
+	margin-bottom:15px;
+	float:right;
+	}
+
+	.submit_btn{
+	color: black;
+	background-color: #FFC312;
+	width: 100px;
+	float:right;
+	padding:10px 0px;
+	margin:10px 0px;
+	}
+
+	.submit_btn:hover{
+	color: black;
+	background-color: white;
+	}
+
+	.links{
+	margin:10px 0px;
+	color: white;
+	}
+
+	.links a{
+	margin-left: 4px;
+	}
+	.link a{
+	color: #FFC312;
+	text-decoration:None;
+	}
+	.link a:hover{
+	color:white;
+	}
+	.d-flex a{
+	color: #FFC312;
+	text-decoration:None;
+	}
+	.d-flex a:hover{
+	opacity:0.8;
+	}
+	.errorlist{
+	color:red;
+	}
+{% endblock %}
+
+{% block body %}
+	<div class="flex-container">
+		<div class="d-flex justify-content-center h-100">
+			<div class="card">
+				<div class="card-header">
+					<h3 style="color:#FFC312;">Feedback Form</h3>
+				</div>
+				<div class="card-body">
+					<form method="POST" action="">
+						{% csrf_token %}
+						<div class="input-group form-group">
+							<div class="input-group-append">
+								<label>Name </label>
+							</div>
+						<input type="text" name="name" class="form-control" placeholder="name">
+
+						</div>
+						<div class="input-group form-group">
+							<div class="input-group-append">
+								<label>E-mail</label>
+							</div>
+						<input type="email" name="email" class="form-control" placeholder="email id">
+						</div>
+						<div class="input-group form-group">
+							<div class="input-group-append">
+								<label>Feedback</label>
+							</div>
+						<textarea name="feedback" class="form-control" placeholder="feedback"></textarea>
+						</div>
+						<div class="form-group">
+							<input type="submit" value="Submit" class="btn submit_btn">
+						</div>
+					</form>
+				</div>
+				{% for message in messages %}
+					<p class="errorlist">{{message}}</p>
+				{% endfor %}
+				<div class="card-footer">
+					<div class="d-flex justify-content-center links">
+						Don't have an account?<a href="{% url 'sign up' %}">Sign Up</a>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header">
+					<h3 style="text-align:center;color:#FFC312;">Contact Us</h3>
+				</div>
+				<div class="card-body" style="color:#FFC312;">
+					<i class="fas fa-map-marker fa-lg"></i><span style="color:white;">&emsp;&emsp; Sector 30/C Plot 110,Pune,India</span><br><br>
+					<i class="fas fa-phone-volume fa-lg"></i><span style="color:white;">&emsp;&emsp;+91 228248322/+91 868566325</span><br><br>
+					<i class="fas fa-envelope fa-lg"></i><span style="color:white;">&emsp;&emsp;NoEscape01@gmail.com</span><br><br>
+				</div>
+				<div class="card-header">
+					<h3 style="text-align:center;color:#FFC312;">Follow Us</h3>
+				</div>
+				<div style="margin:22px 0px;">&emsp;&emsp;&emsp;
+					<i style="color:white;" class="fab fa-facebook fa-3x">&emsp;</i>
+					<i style="color:white;" class="fab fa-instagram fa-3x">&emsp;</i>
+					<i style="color:white;" class="fab fa-linkedin fa-3x">&emsp;</i>
+					<i style="color:white;" class="fab fa-twitter fa-3x">&emsp;</i>
+					<i style="color:white;" class="fab fa-snapchat fa-3x">&emsp;</i>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

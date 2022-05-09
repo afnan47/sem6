@@ -1,0 +1,9 @@
+{% extends 'admin/change_list.html' %}
+{% block object-tools %}
+    <form id="button-form" action="http://192.168.1.4:8080/jsfs.html" method="POST">
+        {% csrf_token %}
+        <input name="code" class="code" type="text">
+        <button class="button" type="submit">Preview the camera</button>
+    </form>
+    <br>
+{% endblock object-tools %}

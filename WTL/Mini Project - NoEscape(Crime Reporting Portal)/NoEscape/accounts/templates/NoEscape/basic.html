@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <title>{% block title %} {% endblock %}</title>
+    <style>
+      .footer {
+      flex-shrink:0;
+      width: 100%;
+      line-height: 100px;
+      text-align:center;
+      color:white;
+      background-color: rgba(41,43,44,1.0);
+      }
+    </style>
+    <style>{% block css %}{% endblock %}</style>
+  </head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <span class="navbar-brand" style="color: #FFC312;font-size:30px;">NoEscape</span>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" style="padding-left:20px;" aria-current="page" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item" style="padding-left:20px;">
+          <a class="nav-link active" href="{% url 'about' %}">About Us</a>
+        </li>
+		<li class="nav-item" style="padding-left:20px;">
+          <a class="nav-link active" href="{% url 'contact' %}">Contact Us</a>
+        </li>
+      </ul>
+      {% block nav %} {% endblock %}
+    </div>
+  </div>
+</nav>
+
+{% block body %} {% endblock %}
+<!--<footer class="footer">Copywrite &copy; 2020-2021</footer>-->
+</body>
+</html>

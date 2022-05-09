@@ -1,0 +1,161 @@
+{% extends 'NoEscape/basic.html' %}
+{% load static %}
+{% block css %}
+	  @import url('https://fonts.googleapis.com/css?family=Numans');
+
+	html,body{
+	background-image: url('{% static "../static/NoEscape/images/cctv.jpg" %}');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	font-family: 'Numans', sans-serif;
+	}
+
+	.container{
+	height: 100%;
+	align-content: center;
+	}
+
+	.card{
+	margin-top: 130px;
+	margin-bottom: auto;
+	width: 400px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	padding: 10px;
+	background-color: rgba(41,43,44,0.8) !important;
+	}
+
+	.card-header{
+	padding-top:20px;
+	}
+
+	h3{
+	color:white;
+	}
+
+	.input-group-append span{
+	width: 50px;
+	height:40px;
+	background-color: #FFC312;
+	color: black;
+	border:0 !important;
+	}
+
+	.input-group{
+	margin-bottom:15px;
+	}
+
+	.login_btn{
+	color: black;
+	background-color: #FFC312;
+	width: 100px;
+	float:right;
+	padding:10px 0px;
+	margin:10px 0px;
+	}
+
+	.login_btn:hover{
+	color: black;
+	background-color: white;
+	}
+
+	.links{
+	margin:10px 0px;
+	color: white;
+	}
+
+	.links a{
+	margin-left: 4px;
+	}
+	.link a{
+	color: #FFC312;
+	text-decoration:None;
+	}
+	.link a:hover{
+	color:white;
+	}
+	.d-flex a{
+	color: #FFC312;
+	text-decoration:None;
+	}
+	.d-flex a:hover{
+	opacity:0.8;
+	}
+	.errorlist{
+	color:red;
+	}
+{% endblock %}
+{% block nav %}
+	<form class="link">
+        <a class="btn btn-outline-warning" href="{% url 'login' %}" role="button">Log in</a>
+        <a class="btn btn-outline-warning" style="margin-left:20px;" href="{% url 'sign up' %}" role="button">Sign Up</a>
+    </form>
+{% endblock %}
+{% block body %}
+	<div class="container">
+		<div class="d-flex justify-content-center h-100">
+			<div class="card">
+				<div class="card-header">
+					<h3 style="color:#FFC312;">Sign Up</h3>
+				</div>
+				<div class="card-body">
+					<form method="POST" action="">
+						{% csrf_token %}
+						<div class="input-group form-group">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							{{form.username}}
+						</div>
+						<div class="input-group form-group">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
+							</div>
+							{{form.email}}
+						</div>
+						<div class="input-group form-group">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							{{form.password1}}
+						</div>
+						<div class="input-group form-group">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							{{form.password2}}
+						</div>
+						<div class="form-group">
+							<input type="submit" value="sign up" class="btn login_btn">
+						</div>
+					</form>
+				</div>
+
+				{% for message in messages %}
+				<p class="errorlist">{{message}}</p>
+				{% endfor %}
+
+				<div class="card-footer">
+				<div class="d-flex justify-content-center links">
+					Already have an account?<a href="{% url 'login' %}">Log In</a>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+<script>
+		var form_fields = document.getElementsByTagName('input')
+		form_fields[1].placeholder='Username..';
+		form_fields[2].placeholder='Email..';
+		form_fields[3].placeholder='Enter password...';
+		form_fields[4].placeholder='Re-enter Password...';
+
+
+		for (var field in form_fields){
+			form_fields[field].className += ' form-control'
+		}
+	</script>
+{% endblock %}
