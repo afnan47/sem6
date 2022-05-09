@@ -1,16 +1,8 @@
 def issafe(arr,x,y,n):
     for row in range(x):
         if arr[row][y] ==1:
+            # Checking column attack
             return False
-    row = x
-    col = y
-    #Checking column attack
-    while row>=0 and col>=0:
-        if arr[row][col]==1:
-            return False
-        row-=1
-        col-=1
-
     row = x
     col = y
     #Checking Diagonal Attack
