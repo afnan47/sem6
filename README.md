@@ -1,3 +1,2 @@
-<h1>Semester-6</h1>
-SPPU Computer Engineering Thrid Year-Sem 2 Assignments
-
+<h1>SPPU Computer Engineering Thrid Year-Sem 2 Assignments</h1>
+Programming Assignments of Savitribai Phule Pune University (SPPU) Third Year (TE) Computer Engineering 2020-2021
