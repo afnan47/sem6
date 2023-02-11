@@ -6,13 +6,15 @@ start-all.sh
 
 start-dfs.sh
 
-//Pass@123
+//Compile and run java
 
 mkdir words
 
 javac -classpath hadoop-core-1.2.1.jar words/WordCount.java
 
 jar -cvf words.jar -C words/ .
+
+//Run Hadoop
 
 hadoop fs -mkdir /words
 
